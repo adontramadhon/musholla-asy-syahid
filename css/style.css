@@ -348,8 +348,6 @@ body {
   cursor: pointer;
 }
 
-/* Struktur */
-
 /* Struktur Organisasi */
 
 .struktur-org {
@@ -539,7 +537,7 @@ body {
 
 .foto img {
   width: 100%;
-  height: 200px;
+  height: auto;
   object-fit: cover;
   border-radius: 6px;
   display: block;
@@ -553,7 +551,7 @@ footer {
   background-color: #e2eee2;
   text-align: center;
   padding: 1rem 0 3rem;
-  margin-top: 3rem;
+  margin-top: 0.5rem;
 }
 
 footer .socials {
@@ -675,6 +673,104 @@ footer .credit a {
   .kontak .row form {
     padding-top: 0;
   }
+
+  .struktur-org {
+    padding: 5rem 5% 1rem;
+  }
+
+  .struktur-org h2 {
+    font-size: 1.5rem;
+  }
+
+  .level {
+    flex-wrap: wrap; /* biar kalau kepanjangan bisa turun */
+    justify-content: center; /* tengahin isinya */
+    gap: 1rem;
+  }
+
+  .box {
+    min-width: 140px;
+    max-width: 160px;
+    font-size: 0.85rem;
+    padding: 0.8rem;
+  }
+
+  .box span {
+    font-size: 0.75rem;
+  }
+
+  /* Tetap tampilkan garis di layar kecil */
+  .two-box::after,
+  .three-box::after,
+  .four-box::after,
+  .five-box::after {
+    display: block;
+  }
+
+  .three-box .box::before,
+  .four-box .box::before,
+  .five-box .box::before {
+    display: block;
+  }
+}
+
+@media (max-width: 655px) {
+  .struktur-org {
+    padding: 4rem 5% 1rem;
+  }
+
+  .struktur-org h2 {
+    font-size: 1.5rem;
+  }
+
+  .org-chart {
+    gap: 2rem;
+  }
+
+  .level {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: nowrap; /* ⛔ JANGAN wrap */
+    overflow-x: auto; /* ✅ Scroll horizontal jika sempit */
+    padding-bottom: 0.5rem; /* biar scroll gak nempel */
+  }
+
+  .level::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .level::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+  }
+
+  .box {
+    flex: 1 1 120px; /* auto scale */
+    min-width: 120px;
+    max-width: 140px;
+    font-size: 0.85rem;
+    padding: 0.7rem;
+    box-sizing: border-box;
+  }
+
+  .box span {
+    font-size: 0.75rem;
+  }
+
+  /* Tetap tampilkan garis penghubung */
+  .two-box::after,
+  .three-box::after,
+  .four-box::after,
+  .five-box::after {
+    display: block;
+  }
+
+  .three-box .box::before,
+  .four-box .box::before,
+  .five-box .box::before {
+    display: block;
+  }
 }
 
 /* Hp */
@@ -682,12 +778,71 @@ footer .credit a {
   html {
     font-size: 55%;
   }
+
+  @media (max-width: 450px) {
+    .struktur-org {
+      padding: 3rem 5% 1rem;
+    }
+
+    .struktur-org h2 {
+      font-size: 1.3rem;
+    }
+
+    .org-chart {
+      gap: 2rem;
+    }
+
+    .level {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      padding-bottom: 1rem;
+    }
+
+    .box {
+      min-width: 220px;
+      max-width: 90%;
+      font-size: 0.9rem;
+      padding: 1rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .box span {
+      font-size: 0.8rem;
+    }
+
+    /* Hapus garis horizontal antar box */
+    .two-box::after,
+    .three-box::after,
+    .four-box::after,
+    .five-box::after {
+      display: none;
+    }
+
+    .three-box .box::before,
+    .four-box .box::before,
+    .five-box .box::before {
+      display: none;
+    }
+
+    .galeri-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .galeri-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .galeri-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .foto img {
+      aspect-ratio: 4/3;
+    }
+  }
 }
-
-/* Navbar */
-
-/* Hero */
-
-/* Hero */
-
-/* Tentang */
